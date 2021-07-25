@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  django:
+    build:
+      context: ../
+      dockerfile: devops/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ../:/project
+    working_dir: /project
+    command: ./start_server.sh
