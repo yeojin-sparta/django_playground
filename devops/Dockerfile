@@ -1,7 +1,7 @@
 FROM        python:3.9.6-slim
 
 RUN         apt-get update
-RUN         apt-get install gcc -y
+RUN         apt-get install gcc default-libmysqlclient-dev -y
 
 EXPOSE      8000
 ENV         DJANGO_SETTINGS_MODULE=config.settings

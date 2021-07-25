@@ -13,3 +13,16 @@ services:
       - ../:/project
     working_dir: /project
     command: ./start_server.sh
+    depends_on:
+      - mysql
+  mysql:
+    image: mysql:8.0.25
+    volumes:
+      - mysql_volume:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: django_playground
+      TZ: Asia/Seoul
+
+volumes:
+  mysql_volume:
